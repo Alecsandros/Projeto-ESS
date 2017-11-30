@@ -40,7 +40,7 @@ function PedidoEntregue(pedido){
 		var bruto = preco * quantidade;
 		var lucro = (bruto/100) * desconto;
 		incrementarValor(lucro, bruto);
-		ArrayProduto[i].incrementarPeso(quantidade);
+		ArrayProduto[indice].incrementarPeso(quantidade);
 	}
 	
 }
