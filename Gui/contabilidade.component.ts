@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-
+ 
 import { Contabilidade } from './contabilidade';
 import { ContabilidadeService } from './contabilidade.service';
 
@@ -25,7 +25,7 @@ export class ContabilidadeComponent implements OnInit {
 			var bruto = preco * quantidade;
 			var lucro = (bruto/100) * desconto;
 			incrementarValor(lucro, bruto);
-			/*incrementarValorProd(lucro, bruto, quantidade, indice);*/
+			ArrayProduto[indice].incrementarValor(lucro, bruto, quantidade);
 		}
 	}
 	
@@ -53,17 +53,6 @@ export class ContabilidadeComponent implements OnInit {
 		brutoMensal += bruto;
 		this.contabilidadeService.atualizar(this.contabilidade);
 	}
-
-	/*incrementarValorProd(lucro: decimal, bruto: decimal, quantidade: decimal, indice: number){
-		var registroproduto = ArrayProduto[indice];
-		registroproduto.lucroDiario +=  lucro;
-		registroproduto.lucroSemanal += lucro;
-		registroproduto.lucroMensal += lucro;
-		registroproduto.brutoDiario += bruto;
-		registroproduto.brutoSemanal += bruto;
-		registroproduto.brutoMensal += bruto;
-		
-	}*/
 
 	ngOnInit(): void {
  +    console.log();

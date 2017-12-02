@@ -10,7 +10,7 @@ export class Contabilidade{
 	brutoSemanal = decimal;
 	brutoMensal = decimal;
 	indiceArray = inteiro;
-	/*ArrayProduto = produtocadastrado[];*/
+	ArrayProduto = RegistroProduto[];
   
 	constructor(){
 		this.clean();
@@ -26,7 +26,7 @@ export class Contabilidade{
 		brutoSemanal = 0;
 		brutoMensal = 0;
 		indiceArray = 0;
-		/*ArrayProduto = [];*/
+		ArrayProduto = [];
 	}
 
 	clone (): Contabilidade {
@@ -44,13 +44,13 @@ export class Contabilidade{
 		this.brutoDiario = from.lucroDiario;
 		this.brutoSemanal = from.lucroSemanal;
 		this.brutoMensal = from.lucroMensal;
-		/*this.copyArrayProdutoFrom(from.ArrayProduto);*/
+		this.copyArrayProdutoFrom(from.ArrayProduto);
 	}
 
-	/*copyArrayProdutoFrom(from: ProdutoCadastrado[]): void {
+	copyArrayProdutoFrom(from: RegistroProduto[]): void {
 		this.ArrayProduto = [];
 		for i in from {
 			this.ArrayProduto[i] = from[i];
 		}
-	}*/
+	}
 }
