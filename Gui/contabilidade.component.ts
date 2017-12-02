@@ -25,7 +25,7 @@ export class ContabilidadeComponent implements OnInit {
 			var bruto = preco * quantidade;
 			var lucro = (bruto/100) * desconto;
 			incrementarValor(lucro, bruto);
-			incrementarValorProd(lucro, bruto, quantidade, indice);
+			/*incrementarValorProd(lucro, bruto, quantidade, indice);*/
 		}
 	}
 	
@@ -51,9 +51,10 @@ export class ContabilidadeComponent implements OnInit {
 		brutoDiario += bruto;
 		brutoSemanal += bruto;
 		brutoMensal += bruto;
+		this.contabilidadeService.atualizar(this.contabilidade);
 	}
 
-	incrementarValorProd(lucro: decimal, bruto: decimal, quantidade: decimal, indice: number){
+	/*incrementarValorProd(lucro: decimal, bruto: decimal, quantidade: decimal, indice: number){
 		var registroproduto = ArrayProduto[indice];
 		registroproduto.lucroDiario +=  lucro;
 		registroproduto.lucroSemanal += lucro;
@@ -62,6 +63,16 @@ export class ContabilidadeComponent implements OnInit {
 		registroproduto.brutoSemanal += bruto;
 		registroproduto.brutoMensal += bruto;
 		
-	}
+	}*/
+
+	ngOnInit(): void {
+ +    console.log();
+ +    this.contabilidadeService.getContabilidade();
+ +        .then(cont => this.contabilidade = cont);
+ +        .catch(erro => alert(erro));
+ +  }
+
+ +  onMove(): void {
+ +  }
 }
 
