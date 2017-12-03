@@ -1,32 +1,30 @@
 import {RegistroProduto} from './registroproduto';
 
 export class Contabilidade{
-	lucro= decimal;
-	lucroDiario = decimal;
-	lucroSemanal = decimal;
-	lucroMensal = decimal;
-	bruto= decimal;
-	brutoDiario = decimal;
-	brutoSemanal = decimal;
-	brutoMensal = decimal;
-	indiceArray = inteiro;
-	ArrayProduto = RegistroProduto[];
+	lucro: decimal;
+	lucroDiario: decimal;
+	lucroSemanal: decimal;
+	lucroMensal: decimal;
+	bruto: decimal;
+	brutoDiario: decimal;
+	brutoSemanal: decimal;
+	brutoMensal: decimal;
+	ArrayProduto: RegistroProduto[];
   
 	constructor(){
 		this.clean();
 	}
 
 	clean(): void {
-		lucro = 0;
-		lucroDiario = 0;
-		lucroSemanal = 0;
-		lucroMensal = 0;
-		bruto = 0;
-		brutoDiario = 0;
-		brutoSemanal = 0;
-		brutoMensal = 0;
-		indiceArray = 0;
-		ArrayProduto = [];
+		this.lucro = 0;
+		this.lucroDiario = 0;
+		this.lucroSemanal = 0;	
+		this.lucroMensal = 0;
+		this.bruto = 0;
+		this.brutoDiario = 0;
+		this.brutoSemanal = 0;
+		this.brutoMensal = 0;
+		this.ArrayProduto = [];
 	}
 
 	clone (): Contabilidade {
@@ -41,9 +39,9 @@ export class Contabilidade{
 		this.lucroSemanal = from.lucroSemanal;
 		this.lucroMensal = from.lucroMensal;
 		this.bruto = from.bruto;
-		this.brutoDiario = from.lucroDiario;
-		this.brutoSemanal = from.lucroSemanal;
-		this.brutoMensal = from.lucroMensal;
+		this.brutoDiario = from.brutoDiario;
+		this.brutoSemanal = from.brutoSemanal;
+		this.brutoMensal = from.brutoMensal;
 		this.copyArrayProdutoFrom(from.ArrayProduto);
 	}
 

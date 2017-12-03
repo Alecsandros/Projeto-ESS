@@ -18,19 +18,22 @@ export class ContabilidadeComponent implements OnInit {
 	diario(): void {
 		this.lucro = this.lucroDiario;
 		this.bruto = this.brutoDiario;
+		this.peso = this.pesoDiario;
   	}
 
   	semanal(): void {
 		this.lucro = this.lucroSemanal;
 		this.bruto = this.brutoSemanal;
+		this.peso = this.pesoSemanal;
   	}
 
   	mensal(): void {
 		this.lucro = this.lucroMensal;
 		this.bruto = this.brutoMensal;
+		this.peso = this.pesoMensal;
   	}
 
-	incrementarValor(lucro: decimal, bruto: decimal, peso: decimal){ //V1
+	incrementarValor(lucro: decimal, bruto: decimal, peso: decimal, indice: integer){ //V1
 		lucroDiario +=  lucro;
 		lucroSemanal += lucro;
 		lucroMensal += lucro;
@@ -44,13 +47,13 @@ export class ContabilidadeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-    console.log();
-    this.registroProdutoService.getRegistroProdutos();
-        .then(reg => this.registroproduto = reg);
-        .catch(erro => alert(erro));
-  }
+	    console.log();
+	    this.registroProdutoService.getRegistroProdutos();
+	        .then(reg => this.registroproduto = reg);
+	        .catch(erro => alert(erro));
+  	}
 
-  onMove(): void {
-  }
+  	onMove(): void {
+  	}
 }
 

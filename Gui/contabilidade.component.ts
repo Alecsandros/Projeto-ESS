@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
  
 import { Contabilidade } from './contabilidade';
 import { ContabilidadeService } from './contabilidade.service';
+import { RegistroProdutoComponent} from '/.registroproduto.component';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,10 @@ import { ContabilidadeService } from './contabilidade.service';
 
 export class ContabilidadeComponent implements OnInit {
 	constructor(private contabilidadeService: ContabilidadeService) {}
+	contabilidade: Contabilidade = new Contabilidade();
 
-	contabilidadePedido(pedido: Pedido){
-		var listaDeCompra = pedido.Lista;
+	contabilidadePedido(pedido: Pedido){ //ver isto
+		var listaDeCompra = pedido.Lista; 
 		for (let i of listaDeCompra){
 			var itemDeCompra = listaDeCompra[i];
 			var produto = itemDeCompra.getProduto();
@@ -24,8 +26,8 @@ export class ContabilidadeComponent implements OnInit {
 			var desconto = pedido.Desconto;
 			var bruto = preco * quantidade;
 			var lucro = (bruto/100) * desconto;
+			RegistroProdutoComponent.incrementarValor(lucro, bruto, quantidade, indice);
 			incrementarValor(lucro, bruto);
-			ArrayProduto[indice].incrementarValor(lucro, bruto, quantidade);
 		}
 	}
 	
@@ -55,13 +57,13 @@ export class ContabilidadeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
- +    console.log();
- +    this.contabilidadeService.getContabilidade();
- +        .then(cont => this.contabilidade = cont);
- +        .catch(erro => alert(erro));
- +  }
+	    console.log();
+	    this.contabilidadeService.getContabilidade();
+	        .then(cont => this.contabilidade = cont);
+	        .catch(erro => alert(erro));
+    }
 
- +  onMove(): void {
- +  }
+    onMove(): void {
+    }
 }
 
