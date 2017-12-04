@@ -12,7 +12,7 @@ export class RegistroProduto{
 		brutoSemanal: decimal; 
 		brutoMensal: decimal;
 		peso: decimal;
-		pesoDiario: decimal;
+		pesoDiario: decimal; 
 		pesoSemanal: decimal;
 		pesoMensal: decimal;
 

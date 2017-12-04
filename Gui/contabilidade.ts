@@ -17,7 +17,7 @@ export class Contabilidade{
 
 	clean(): void {
 		this.lucro = 0;
-		this.lucroDiario = 0;
+		this.lucroDiario = 0; 
 		this.lucroSemanal = 0;	
 		this.lucroMensal = 0;
 		this.bruto = 0;

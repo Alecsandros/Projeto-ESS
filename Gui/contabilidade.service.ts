@@ -12,6 +12,15 @@ export class ContabilidadeService {
 
   	constructor(private http: Http) { }
 
+  	criar (contabilidade: Contabilidade): Promise<Contabilidade> {
+  		return this.http.post(this.taURL + "/contabilidade", JSON.stringify(contabilidade), {headers: this.headers})
+		  	.toPromise()
+		  	.then(res => {
+		  		if(res.json().sucess) {return contabilidade;} else {return null;}
+		  	})
+		  	.catch(this.tratarErro);
+  	}
+
 	atualizar(contabilidade: Contabilidade): Promise<Contabilidade> {
 	  	return this.http.post(this.taURL + "/contabilidade", JSON.stringify(contabilidade), {headers: this.headers})
 		  	.toPromise()
